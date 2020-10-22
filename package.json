@@ -1,25 +1,48 @@
 {
-  "name": "unwxvpkg",
+	"name": "unwxvpkg-vsce",
 	"displayName": "unwxvpkg",
-	"description": "unpack *.wxvpkg files",
+	"description": "unpack *.wx[av]pkg file",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.50.0"
 	},
+	"author": "FredZeng",
+	"license": "MIT",
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"weapp",
+		"wxapkg",
+		"wxvpkg"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/FredZeng/unwxvpkg-plugin.git"
+	},
+	"bugs": {
+		"url": "https://github.com/FredZeng/unwxvpkg-plugin/issues"
+	},
 	"activationEvents": [
-        "onCommand:unwxvpkg.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "unwxvpkg.helloWorld",
-				"title": "Hello World"
+				"command": "unwxvpkg.unpack",
+				"title": "Unpack wxvpkg"
 			}
-		]
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "!explorerResourceIsFolder && resourceExtname =~ /wx[av]pkg$/",
+					"command": "unwxvpkg.unpack",
+					"group": "unwxvpkg@1"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
@@ -30,16 +53,19 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.50.0",
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.0.0",
 		"@types/node": "^12.11.7",
-		"eslint": "^7.9.0",
+		"@types/vscode": "^1.50.0",
 		"@typescript-eslint/eslint-plugin": "^4.1.1",
 		"@typescript-eslint/parser": "^4.1.1",
+		"eslint": "^7.9.0",
 		"glob": "^7.1.6",
 		"mocha": "^8.1.3",
 		"typescript": "^4.0.2",
 		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"unwxvpkg": "^0.0.3"
 	}
 }
