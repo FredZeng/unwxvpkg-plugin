@@ -5,7 +5,7 @@ VSCode extension for unpacking *.wx[av]pkg file.
 Based on a copy of [thedreamwork/unwxapkg](https://github.com/thedreamwork/unwxapkg).
 
 ## Usage
-![intro](https://store-g1.seewo.com/wxvpkg/intro.gif)
+![intro](https://cdn.jsdelivr.net/gh/FredZeng/unwxvpkg-plugin@main/intro.gif)
 
 ## About
 
